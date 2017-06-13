@@ -1,18 +1,5 @@
 <template>
-<<<<<<< Updated upstream
-  <div>info</div>
-</template>
-
-<script type="text/javascript">
-
-=======
   <div>
-  	<!--<ul>
-  		<li v-for="item in list1">
-  			<img :src="item.cover"/>
-  			<h2>{{item.title}}</h2>
-  		</li>
-  	</ul>-->
     <div class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="item in list1">
@@ -24,9 +11,7 @@
   				</router-link>
         </div>
     </div>
-    
 		</div>
-		
   </div>
 </template>
 
@@ -38,15 +23,9 @@
 //				//slidesPerGroup : 3,
 //				loop:true
 //		})
-	 
-	 
->>>>>>> Stashed changes
 	export default {
 		
   name: 'ListTab',
-<<<<<<< Updated upstream
-  
-=======
   data () {
     return {
     	
@@ -81,7 +60,6 @@
     
       })
  	},
->>>>>>> Stashed changes
 }
 </script>
 
