@@ -34,10 +34,6 @@
 export default {
   name: 'App'
 }
-var path = window.location.pathname;
-if(!path == '/'){
-	
-}
 
 </script>
 

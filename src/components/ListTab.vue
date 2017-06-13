@@ -35,7 +35,7 @@
     }
   },
  	created(){
- 			//var url = "https://read.douban.com/j/category/"
+ 			var url = "https://read.douban.com/j/category/"
 //       jsonp(url,null,(err,data)=> {
 //        if(err){
 //          console.log('数据无法获取')
@@ -44,17 +44,17 @@
 //          console.log(this.arr)
 //        }
 //       })
-			Vue.axios.get("../static/list.json").then((res)=> {
+			Vue.axios.get(url).then((res)=> {
         return res
       }).then((res)=> {
         //console.log(res.data);
         var data = res.data;
         //console.log(data)
         
-       console.log(data[0])
+       console.log(data[0]);
        this.arr = data[0];
        var list1 = data[0].works;
-       console.log(list1)
+       console.log(list1);
       	this.list1 = data[0].works;
      	
     
@@ -72,7 +72,7 @@
 	}
 	.swiper-slide{
 		width:25vw;
-		margin-right:1rem;
+		margin-right:0.4rem;
 		text-align: left;
 	}
 	.swiper-slide img{
