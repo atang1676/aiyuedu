@@ -13,6 +13,7 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "jsonp": "^0.2.1",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1"
   },
