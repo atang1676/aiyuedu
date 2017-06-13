@@ -1,16 +1,17 @@
 <template>
-	<div class="NavHeader">
-		<h1>豆瓣专栏</h1>
-		<div class="subtitle">世间之事，经验之谈。
-			<a href="" class="">了解更多 &gt;</a>
+	<div>
+		<div class="NavHeader">
+			<h1>豆瓣专栏</h1>
+			<div class="subtitle">世间之事，经验之谈。
+				<a href="" class="">了解更多 &gt;</a>
+			</div>
 		</div>
-		<router-view>
-			
-		</router-view>
+		<navInfoTop></navInfoTop>
 	</div>
 </template>
 
 <script>
+import navInfoTop from './navInfoTop'
 export default{
 	name:'NavInfo'
 }
@@ -19,9 +20,10 @@ export default{
 <style scoped>
 .NavHeader{
 	width: 100%;
-	height: 2.2rem;
+	height: 1.4rem;
 	font-size: 0.25rem;
-	padding: 8px 5px;
+	padding-top:0.3rem;
+	padding-left: 0.2rem;
 }
 .NavHeader h1{
 	font-weight: bold;

@@ -1,13 +1,15 @@
 <template>
-	<div class="navTab">
-		<ul>
-			<li>
-				<router-link :to="{name:'NavInfo',params:{kind:'column'}}">专栏></router-link>
-			</li>
-			<li>
-				<router-link :to="{ name:'NavInfo', params:{kind:'serial'} }">连载></router-link>
-			</li>
-		</ul>
+	<div id="content"> 
+		<div class="navTab">
+			<ul>
+				<li>
+					<router-link :to="{name:'NavInfo',params:{kind:'column'}}">专栏></router-link>
+				</li>
+				<li>
+					<router-link :to="{ name:'NavInfo', params:{kind:'serial'} }">连载></router-link>
+				</li>
+			</ul>
+		</div>
 		<ListTab></ListTab>
 	</div>
 </template>

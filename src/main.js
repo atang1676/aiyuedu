@@ -11,7 +11,7 @@ import jQuery from "jquery"
 window.$=window.jQuery=jQuery;
 import amazeui from "amazeui"
 import 'amazeui/dist/css/amazeui.min.css'
-import Swiper from 'swiper'
+import swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import 'normalize.css/normalize.css'
 

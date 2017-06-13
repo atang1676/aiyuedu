@@ -13,11 +13,10 @@ export default new Router({
       name: 'Content',
       component: Content
     },
-    
     {
     	path:'/navInfo/:kind',
     	name:'NavInfo',
-    	component:NavInfo,
+    	component:NavInfo
     }
   ]
 })

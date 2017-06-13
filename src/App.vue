@@ -18,9 +18,9 @@
           </a>
       </div>
   </header>
-  <div id="content">
+  
     <router-view></router-view>
-  </div>
+  
 	<footer>
 		<p>
 			<span class="user-name">阿糖</span>
@@ -94,6 +94,7 @@ body{
 
 #content{
 	display: flex;
+	flex-flow: column wrap;
 	flex: 1;
 }
 
