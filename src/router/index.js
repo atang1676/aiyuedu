@@ -1,15 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ListTab from '@/components/ListTab'
+import Content from '@/components/Content'
+import NavInfo from '@/components/NavInfo'
 
 Vue.use(Router)
 
 export default new Router({
+	mode:'history',
   routes: [
     {
       path: '/',
-      name: 'ListTab',
-      component: ListTab
+      name: 'Content',
+      component: Content
+    },
+    
+    {
+    	path:'/navInfo/:kind',
+    	name:'NavInfo',
+    	component:NavInfo,
     }
   ]
 })
