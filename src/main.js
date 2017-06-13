@@ -7,6 +7,7 @@ import router from './router'
 import jsonp from "jsonp"
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+<<<<<<< Updated upstream
 import jQuery from "jquery"
 window.$=window.jQuery=jQuery;
 import amazeui from "amazeui"
@@ -16,6 +17,11 @@ import 'swiper/dist/css/swiper.min.css'
 import 'normalize.css/normalize.css'
 
 
+=======
+import jQuery from 'jquery'
+window.$=window.jQuery = jQuery
+Vue.config.productionTip = false
+>>>>>>> Stashed changes
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 

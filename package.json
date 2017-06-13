@@ -13,7 +13,10 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "amazeui": "^2.7.2",
+=======
+>>>>>>> Stashed changes
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "jsonp": "^0.2.1",
