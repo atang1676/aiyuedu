@@ -1,27 +1,74 @@
 <template>
-	<div class="NavHeader">
-		<h1>豆瓣专栏</h1>
-		<div class="subtitle">世间之事，经验之谈。
-			<a href="" class="">了解更多 &gt;</a>
+	<div id="content">
+		<div class="NavHeader" v-if=" kind == 'column' ">
+			<h1>豆瓣专栏</h1>
+			<div class="subtitle">世间之事，经验之谈。
+				<a href="" class="">了解更多 &gt;</a>
+			</div>
 		</div>
-		<router-view>
-			
-		</router-view>
+		<div class="NavHeader" v-else>
+			<h1>豆瓣连载</h1>
+			<div class="subtitle">追就对了
+				<a href="" class="">了解更多 &gt;</a>
+			</div>
+		</div>
+		<navInfoTop :img-banners="banners"></navInfoTop>
+		<navInfoCenter :list-charts="charts"></navInfoCenter>
+		<navInfoBottom :list-kinds="kinds"></navInfoBottom>
 	</div>
 </template>
 
 <script>
+import Vue from 'vue'
+import navInfoTop from './navInfoTop'
+import navInfoCenter from './navInfoCenter'
+import navInfoBottom from './navInfoBottom'
+
 export default{
-	name:'NavInfo'
+	name:'NavInfo',
+	components:{navInfoTop,navInfoCenter,navInfoBottom},
+	data(){
+		return {
+			banners:'',
+			charts:'',
+			kinds:'',
+			kind:''
+		}
+	},
+	created(){
+		var kind = window.location.pathname.split('/')[2];
+		var url ='';
+		//var url = 'https://read.douban.com/j/column/?kind='+ kind
+		if(kind == 'column'){
+			url = '../static/navInfoColumn.json';
+			this.kind = 'column';
+		}else if(kind == 'serial'){
+			url = '../static/navInfoSerial.json';
+			this.kind = 'serial';
+		}
+		console.log(url);
+		 Vue.axios.get(url).then((res)=> {
+	        this.banners = Array.prototype.slice.call(res.data.banners);
+	        this.charts = Array.prototype.slice.call(res.data.charts);
+	        this.kinds = Array.prototype.slice.call(res.data.kinds);
+	       // console.log(this.charts);
+	     })
+	}
 }
+
+//专栏 ： https://read.douban.com/j/column/?kind=column
+//连载： https://read.douban.com/j/column/?kind=serial 
+
 </script>
 
 <style scoped>
 .NavHeader{
 	width: 100%;
-	height: 2.2rem;
+	height: 1.4rem;
 	font-size: 0.25rem;
-	padding: 8px 5px;
+	padding-top:0.3rem;
+	padding-left: 0.2rem;
+	position: relative;
 }
 .NavHeader h1{
 	font-weight: bold;
@@ -30,9 +77,10 @@ export default{
 	margin-bottom: 8px;
 }
 .NavHeader a{
+	position: absolute;
 	color: #71ceb5;
 	font-size: 0.25rem;
-	margin-left:2rem;
+	right: 5px;
 	
 }
 </style>

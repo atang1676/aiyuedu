@@ -1,7 +1,7 @@
 <template>
   <div id="app">
      <header data-am-widget="header"
-          class="am-header am-header-default">
+          class="am-header am-header-default am-header-fixed">
       <div class="am-header-left am-header-nav">
           <a href="" class="">
                 豆瓣阅读
@@ -18,15 +18,34 @@
           </a>
       </div>
   </header>
-  <div id="content">
+  
     <router-view></router-view>
-  </div>
-	<footer>
-		<p>
-			<span class="user-name">阿糖</span>
-			<a href="/logout?ck=qUhz&amp;target=/">退出</a> | 手机版 | <a href="" class="go-web">网页版</a></p><p class="copyright">© 2005-2017 douban.com
-		</p>
-	</footer>
+  <footer data-am-widget="footer"
+          class="am-footer am-footer-default am-footer-fixed"
+           data-am-footer="{  }">
+    <div class="am-footer-switch">
+    <span class="am-footer-ysp" data-rel="mobile"
+          data-am-modal="{target: '#am-switch-mode'}">
+    	阿糖
+    </span>
+      
+      <a id="godesktop" data-rel="desktop" class="am-footer-desktop" href="javascript:">
+          退出
+      </a>
+      <span class="am-footer-divider"> | </span>
+      <span class="am-footer-ysp" data-rel="mobile"
+          data-am-modal="{target: '#am-switch-mode'}">
+    	手机版
+    </span>
+      
+      <a id="godesktop" data-rel="desktop" class="am-footer-desktop" href="javascript:">
+          网页版
+      </a>
+    </div>
+    <div class="am-footer-miscs ">
+			<p class="copyright">© 2005-2017 douban.com</p>
+    </div>
+  </footer>
   </div>
 </template>
 
@@ -55,7 +74,7 @@ html{
 }
 body{
 	display: flex;
-  flex-flow: column wrap; 
+  flex-flow: column; 
   justify-content:space-between;
 }
 #app {
@@ -65,6 +84,8 @@ body{
   overflow-x: hidden;
   justify-content:space-between;
 }
+
+
 .am-header-default {
 	display: flex;
 	justify-content: space-between;
@@ -90,13 +111,38 @@ body{
 
 #content{
 	display: flex;
+	flex-flow: column;
 	flex: 1;
 }
 
 
-footer{
-	height: 0.89rem;
-	font-size: 0.16rem;
-	text-align: center;
+.am-footer-default{
+	font-size: 0.22rem;
+	background:#f8f9f9;
 }
+.am-footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1010;
+}
+.am-footer-default .am-footer-desktop{
+	color:#71ceb5
+}
+
+
+
+/*navInfoTop里的tips*/
+
+.swiper-pagination-bullet{
+	display:block;
+	float: left;
+	background:#ccc;
+}
+.swiper-pagination-bullet-active{
+	background:#71ceb5;
+}
+
 </style>
