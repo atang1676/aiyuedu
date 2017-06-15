@@ -4,6 +4,8 @@ import Content from '@/components/Content'
 import NavInfo from '@/components/NavInfo'
 import ListInfo from '@/components/ListInfo'
 import fenleiInfo from '@/components/fenleiInfo'
+import Search from '@/components/Search'
+import Account from '@/components/Account'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +30,16 @@ export default new Router({
       path: '/fenleiInfo/:flInfo',
       name: 'fenleiInfo',
       component: fenleiInfo
+    },
+    {//搜索 的 路由
+  		path: '/Search',
+      	name: 'Search',
+     	component: Search
+    },
+    {//账户余额 的 路由
+  		path: '/Account',
+      	name: 'Account',
+     	component: Account
     }
   ]
 })

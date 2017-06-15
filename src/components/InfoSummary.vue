@@ -6,7 +6,7 @@
 		    	
 		      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
 		      	<p>简介</p>
-		      	<p>哈哈哈哈哈</p>
+		      	<p>{{data.abstract}}</p>
 		      </h4>
 		      
 		    </div>
@@ -21,8 +21,8 @@
 		    <div class="am-panel-hd">
 		    	
 		      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
-		      	<p>目录</p>
-		      	<p>{{data.table_of_contents}}</p>
+		      	
+		      	<p></p>
 		      </h4>
 		      
 		    </div>
@@ -63,7 +63,6 @@ export default {
 	.am-panel-hd{
 		height:30vh;
 		width:100vw;
-		background:red;
 		padding:0.2rem 0.2rem 0.1rem;
 		font-size: 0.3rem;
 	}
@@ -72,6 +71,5 @@ export default {
 		width:98vw;
 	}
 	#do-not-say-1{
-		background:yellow;
 	}
 </style>

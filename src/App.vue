@@ -8,14 +8,22 @@
           </a>
       </div>
       <div class="am-header-right am-header-nav">
-          <a href="#user-link" class="">
-
+          <router-link :to="{ name:'Search'}">
                 <i class="iconfont icon-sousuo-sousuo"></i>
-          </a>
-          <a href="#cart-link" class="">
-
-                <i class="iconfont icon-wode1"></i>
-          </a>
+          </router-link>
+          
+					<div class="am-dropdown" data-am-dropdown>
+								<button class="am-btn  am-dropdown-toggle" data-am-dropdown-toggle><i class="iconfont icon-wode1"></i> </button>
+								<ul class="am-dropdown-content">
+								    <li><router-link :to="{ name:'Account'}">账户余额</router-link></li>
+								    <li><a href="#">礼券</a></li>
+								    <li><a href="#">拥有的作品</a></li>
+								    <li><a href="#">礼物</a></li>
+								    <li><a href="#">账户信息</a></li>
+								</ul>
+					</div>
+                
+          
       </div>
   </header>
   
@@ -132,8 +140,20 @@ body{
 	color:#71ceb5
 }
 
-
-
+.am-dropdown .am-dropdown-content li a{
+	font-size: 0.25rem;
+	color: #000;
+}
+.am-dropdown-content{
+	background:ghostwhite;
+	box-shadow: 0 0 10px 3px;
+}
+.am-dropdown-content li{
+	border-bottom: 1px solid gainsboro;
+}
+.am-dropdown-content li:hover{
+	background: gold;
+}
 /*navInfoTop里的tips*/
 
 .swiper-pagination-bullet{
@@ -144,5 +164,18 @@ body{
 .swiper-pagination-bullet-active{
 	background:#71ceb5;
 }
+
+/*Search里的搜索框*/
+.mint-search{
+	background:darkslategray;
+}
+.mint-searchbar-inner{
+	font-size:0.25rem;
+}
+.mint-searchbar-cancel{
+	font-size:0.25rem;
+}
+
+
 
 </style>
