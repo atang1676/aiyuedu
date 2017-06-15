@@ -40,18 +40,22 @@ export default{
 		var url ='';
 		//var url = 'https://read.douban.com/j/column/?kind='+ kind
 		if(kind == 'column'){
-			url = '../static/navInfoColumn.json';
+			//url = 'https://read.douban.com/j/column/?kind='+ kind
+			//url = '../static/navInfoColumn.json';
 			this.kind = 'column';
 		}else if(kind == 'serial'){
-			url = '../static/navInfoSerial.json';
+			//url = 'https://read.douban.com/j/column/?kind='+ kind
+			//url = '../static/navInfoSerial.json';
 			this.kind = 'serial';
 		}
-		console.log(url);
+		url = 'https://read.douban.com/j/column/?kind='+ kind
+		console.log(url)
+	//	console.log(url);
 		 Vue.axios.get(url).then((res)=> {
 	        this.banners = Array.prototype.slice.call(res.data.banners);
 	        this.charts = Array.prototype.slice.call(res.data.charts);
 	        this.kinds = Array.prototype.slice.call(res.data.kinds);
-	       // console.log(this.charts);
+	        console.log(this.charts);
 	     })
 	}
 }

@@ -10,7 +10,7 @@ import VueAxios from 'vue-axios'
 import jQuery from "jquery"
 window.$=window.jQuery=jQuery;
 import amazeui from "amazeui"
-import { Search } from 'mint-ui'
+import { Search,Cell,Indicator} from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import 'amazeui/dist/css/amazeui.min.css'
 import Swiper from 'swiper'
@@ -20,8 +20,7 @@ import 'normalize.css/normalize.css'
 
 Vue.use(VueAxios, axios)
 Vue.component(Search.name, Search)
-
-
+Vue.component(Cell.name, Cell);
 Vue.config.productionTip = false
 
 

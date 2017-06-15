@@ -29,6 +29,7 @@
 .navTab{
 	width: 100%;
 	height:1rem;
+	margin-top:0.2rem;
 }
 .navTab ul{
 	width: 100%;

@@ -3,9 +3,9 @@
      <header data-am-widget="header"
           class="am-header am-header-default am-header-fixed">
       <div class="am-header-left am-header-nav">
-          <a href="" class="" @click="goBack">
+          <router-link :to="{name:'Content'}">
                 爱阅读
-          </a>
+          </router-link>
       </div>
       <div class="am-header-right am-header-nav">
           <router-link :to="{ name:'Search'}" class="search">
@@ -21,9 +21,8 @@
 								    <li><router-link :to="{ name:'GiftPack'}">礼物</router-link></li>
 								    <li><a href="#">账户信息</a></li>
 								</ul>
+								
 					</div>
-                
-          
       </div>
   </header>
   
@@ -58,16 +57,10 @@
 </template>
 
 <script>
+import 'mint-ui/lib/style.css'
+import 'amazeui/dist/css/amazeui.min.css'	
 export default {
-  name: 'App',
-  methods:{
-  	goBack:function(){
-	  		if(!window.location.pathname != '/'){
-	  		window.location.pathname = '/'
-  		}
-  	}
-  	
-  }
+  name: 'App'
 }
 
 </script>
@@ -110,6 +103,7 @@ body{
 	font-size: 0.16rem;
 	height: 0.88rem;
 	background:#fff;
+	border-bottom:1px solid #77A4B3;
 }
 .am-header .am-header-nav img{
 	display: inline-block;
@@ -188,7 +182,30 @@ body{
 .mint-searchbar-cancel{
 	font-size:0.25rem;
 }
-
-
-
+/*搜索框的背景*/
+.mint-searchbar{
+	background:#f8f9f9;
+}
+/*加载更多的模态框*/
+	.mint-indicator-wrapper {
+    top: 82%;
+    left: 50%;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    /* background: rgba(0, 0, 0, 0.7); */
+    color: white;
+    box-sizing: border-box;
+    text-align: center;
+    width: 300px;
+    height: 40px;
+}
+.mint-indicator-spin {
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    left: 45%;
+    top: 4px;
+}
 </style>

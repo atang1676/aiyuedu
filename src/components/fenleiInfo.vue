@@ -15,11 +15,11 @@
 			</router-link>
 		</div>
 		<ul data-am-widget="pagination" class="am-pagination am-pagination-select">
-	        <li class="am-pagination-prev ">
+	        <!--<li class="am-pagination-prev ">
 	        	<a class="" @click="prevPage">上一页</a>
-	        </li>
+	        </li>-->
 	        <li class="am-pagination-next ">
-	        <a class="" @click="nextPage">下一页</a>
+	        <a class="" @click="nextPage">加载更多</a>
 	        </li>
 		</ul>
 	</div>
@@ -36,6 +36,7 @@
 			}
 		},
 		created(){
+			//var url = 
 			var url = '../static/fenleiInfo.json';
 			 Vue.axios.get(url).then((res)=> {
 		        this.infoData = Array.prototype.slice.call(res.data);
@@ -66,29 +67,29 @@
 </script>
 
 <style scoped>
-	.flList {
-	    padding: 0.2rem;
+.flList {
+	    
 	    display: flex;
 	    justify-content: space-between;
 	    font-size: 0.2rem;
 	    width: 100%;
-	    height: 3rem;
-	    margin-top: 0.2rem;
+	    padding: 8px 0 20px;
+	    margin-top: 0.3rem;
 	    border-bottom: 1px solid #ccc;
 	    
 	}
 	.left{
 		display: flex;
 		justify-content: center;
-		align-items: center;
-		width: 40%;
+		width: 30%;
+		padding-top: 3px;
 	}
 	.left img{
 		width: 80%;
 		height:2.3rem;
 	}
 	.flList .right {
-	    width: 60%;
+	    width: 70%;
 	    padding-right: 0.2rem;
 	    padding-bottom:10px;
 	}
@@ -109,7 +110,14 @@
 		font-size: 0.25rem;
 		color: #a6a6a6;
 	}
-	.am-pagination{
+	.am-pagination-next {
+	    position: absolute;
+	    left: 10%;
+	    top: -50px;
+	    width: 80%;
+	    text-align: center;
 		font-size: 0.3rem;
-	}
+		margin: 0.4rem 0rem 1.5rem;
+		padding: 10px 40px;
+    }
 </style>
