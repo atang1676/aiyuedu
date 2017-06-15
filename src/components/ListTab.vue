@@ -29,14 +29,15 @@
 			        	<img :src="item.cover"/>
 			  				<h3 class="book-title">{{item.title}}</h3>
 			  				<p class="book-author">{{item.author}}</p>
-			  				<p class="book-price">{{item.price}}</p>
+			  				<p class="book-price">￥{{
+			  					item.price /100}}</p>
 		  				</router-link>
 		        </div>
 		    </div>
 			</div>
 	  </div>
 	  <div class="list">
-	  	<h2>画册<router-link :to="{ name:'NewInfo', params:{lbInfo:data[3].name} }">></router-link></h2>
+	  	<h2>画册<router-link :to="{ name:'NewInfo', params:{lbInfo:data[2].name} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list3">
@@ -44,7 +45,8 @@
 			        	<img :src="item.cover"/>
 			  				<h3 class="book-title">{{item.title}}</h3>
 			  				<p class="book-author">{{item.author}}</p>
-			  				<p class="book-price">{{item.price}}</p>
+			  				<p class="book-price">￥{{
+			  					item.price /100}}</p>
 		  				</router-link>
 		        </div>
 		    </div>
@@ -89,7 +91,7 @@
   },
  	created(){
  			//var url = "https://read.douban.com/j/category/";
-		Vue.axios.get("../static/list.json").then((res)=> {
+		Vue.axios.get("https://read.douban.com/j/category/").then((res)=> {
         	return res
      	}).then((res)=> {
         //console.log(res.data);

@@ -20,7 +20,7 @@ export default{
 	beforeUpdate(){
 		setTimeout(function(){
 			var mySwiper1 = new Swiper('.navInfoTopSwiper',{
-				autoplay: 4000,//可选选项，自动滑动
+				autoplay: 2000,//可选选项，自动滑动
 				loop:true,
 				pagination : '.navInfoTopPagination',
 				autoplayDisableOnInteraction : false,

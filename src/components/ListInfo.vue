@@ -61,9 +61,9 @@ export default {
   	console.log(window.location);
   	var id = window.location.pathname.split("/")[2];
   	console.log(id);
-  	//var url = "https://read.douban.com/j/ebook/"+id;
+  	var url = "https://read.douban.com/j/ebook/"+id;
   	//console.log(url);
-	   Vue.axios.get("../static/listInfo.json").then((res)=> {
+	   Vue.axios.get(url).then((res)=> {
         return res;
      }).then((res)=>{
       	console.log(res);

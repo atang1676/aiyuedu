@@ -32,23 +32,18 @@
 		name:'NewInfo',
 		data(){
 			return {
-				infoData:''
+				infoData:'',
+				start:0,
+				url:''
 			}
 		},
 		created(){
 			var liInfo = window.location.pathname.split('/')[2];
-			var url ='';
+			
 			//var url = 'https://read.douban.com/j/category/new?start=0&limit=10'
-			if(liInfo == 'new'){
-				url = '../static/newInfo.json';
-			}else if(liInfo == 'top'){
-				url = '../static/topInfo.json';
-			}else if(liInfo == 'gallery'){
-				url = '../static/galleryInfo.json';
-			}else if(liInfo == 'free'){
-				url = '../static/freeInfo.json';
-			}
-			Vue.axios.get(url).then((res)=> {
+			this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start=0&limit=10'
+			console.log(this.url)
+			Vue.axios.get(this.url).then((res)=> {
 			 	this.infoData = Array.prototype.slice.call(res.data);
 		    })
 		},
@@ -63,13 +58,34 @@
 		},
 		methods:{
 			nextPage:function(){
-				return this.infoData.map(item=>{ 
-				 	this.infoData.push(item)
-	            })
+				var liInfo = window.location.pathname.split('/')[2];
+				this.start = Number(this.start) + 10;
+				console.log(this.start)
+				this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start='+this.start+'&limit=10'
+				/*Indicator.open();
+				setTimeout(function(){
+					Indicator.close();
+				},2500)*/
+				Vue.axios.get(this.url).then((res)=> {
+				 	this.infoData = Array.prototype.slice.call(res.data);
+			    })
 			},
 			prevPage:function(){
-				 this.infoData.splice(-1,10);
-				 return this.infoData
+				var liInfo = window.location.pathname.split('/')[2];
+				if(this.start > 0){
+					this.start = Number(this.start) - 10;
+				}else{
+					this.start = 0
+				}
+				console.log(this.start)
+				this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start='+this.start+'&limit=10'
+				/*Indicator.open();
+				setTimeout(function(){
+					Indicator.close();
+				},1000)*/
+				Vue.axios.get(this.url).then((res)=> {
+				 	this.infoData = Array.prototype.slice.call(res.data);
+			    })
 			}
 		}
 	}
@@ -77,28 +93,28 @@
 
 <style scoped>
 .flList {
-	    padding: 0.2rem;
+	    
 	    display: flex;
 	    justify-content: space-between;
 	    font-size: 0.2rem;
 	    width: 100%;
-	    height: 3rem;
-	    margin-top: 0.2rem;
+	    padding: 8px 0 20px;
+	    margin-top: 0.3rem;
 	    border-bottom: 1px solid #ccc;
 	    
 	}
 	.left{
 		display: flex;
 		justify-content: center;
-		align-items: center;
-		width: 40%;
+		width: 30%;
+		padding-top: 3px;
 	}
 	.left img{
 		width: 80%;
 		height:2.3rem;
 	}
 	.flList .right {
-	    width: 60%;
+	    width: 70%;
 	    padding-right: 0.2rem;
 	    padding-bottom:10px;
 	}
@@ -121,5 +137,7 @@
 	}
 	.am-pagination{
 		font-size: 0.3rem;
+		margin: 0.4rem 0rem 1.5rem;
+		padding: 10px 40px;
 	}
 </style>

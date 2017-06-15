@@ -7,6 +7,7 @@ import fenleiInfo from '@/components/fenleiInfo'
 import Search from '@/components/Search'
 import Account from '@/components/Account'
 import NewInfo from '@/components/NewInfo'
+import HotInfo from '@/components/HotInfo'
 Vue.use(Router)
 
 export default new Router({
@@ -22,12 +23,12 @@ export default new Router({
     	name:'NavInfo',
     	component:NavInfo
     },
-    {// 书的详情
+    {// 每本书的详情
       path: '/ListInfo/:id',
       name: 'ListInfo',
       component: ListInfo
     },
-    {// 书的分类的详情
+    {// 专栏 连载下 书的分类的详情
       path: '/fenleiInfo/:flInfo',
       name: 'fenleiInfo',
       component: fenleiInfo
@@ -46,6 +47,11 @@ export default new Router({
   		path: '/NewInfo/:lbInfo',
       	name: 'NewInfo',
      	component: NewInfo
+    },
+    {//专栏连载下  近期热门 最近更新的路由
+  		path: '/HotInfo/:isHot',
+      	name: 'HotInfo',
+     	component: HotInfo
     },
   ]
 })
