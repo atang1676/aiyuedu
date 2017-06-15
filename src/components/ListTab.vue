@@ -12,7 +12,8 @@
 			        	<img :src="item.cover"/>
 			  				<h3 class="book-title">{{item.title}}</h3>
 			  				<p class="book-author">{{item.author}}</p>
-			  				<p class="book-price">{{item.price}}</p>
+			  				<p class="book-price">￥{{
+			  					item.price /100}}</p>
 		  				</router-link>
 		        </div>
 		    </div>
