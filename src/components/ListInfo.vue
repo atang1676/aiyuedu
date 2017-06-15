@@ -66,7 +66,7 @@ export default {
   	console.log(id);
   	var url = "https://read.douban.com/j/ebook/"+id;
   	//console.log(url);
-<<<<<<< HEAD
+
 	   Vue.axios.get("../static/listInfo.json").then((res)=> {
         return res.data;
         console.log(res);
@@ -77,7 +77,7 @@ export default {
       	this.mvlu = data.table_of_contents;
       	this.tags = data.tags;
     })
-=======
+
 	   Vue.axios.get(url).then((res)=> {
         return res;
      }).then((res)=>{
@@ -85,7 +85,7 @@ export default {
       	this.data =res.data;
       	
       })
->>>>>>> 045c1ec797b6cc47d4288753c04e353aa9562730
+
     }
 }
 </script>
