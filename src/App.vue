@@ -3,12 +3,12 @@
      <header data-am-widget="header"
           class="am-header am-header-default am-header-fixed">
       <div class="am-header-left am-header-nav">
-          <a href="" class="">
-                豆瓣阅读
+          <a href="" class="" @click="goBack">
+                爱阅读
           </a>
       </div>
       <div class="am-header-right am-header-nav">
-          <router-link :to="{ name:'Search'}">
+          <router-link :to="{ name:'Search'}" class="search">
                 <i class="iconfont icon-sousuo-sousuo"></i>
           </router-link>
           
@@ -59,7 +59,15 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods:{
+  	goBack:function(){
+	  		if(!window.location.pathname != '/'){
+	  		window.location.pathname = '/'
+  		}
+  	}
+  	
+  }
 }
 
 </script>
@@ -101,7 +109,7 @@ body{
 	color: #77A4B3;
 	font-size: 0.16rem;
 	height: 0.88rem;
-	background: #fff;
+	background:#fff;
 }
 .am-header .am-header-nav img{
 	display: inline-block;
@@ -110,13 +118,21 @@ body{
 }
 .am-header .am-header-nav a{
 	font-size: 0.3rem;
-	color: #77A4B3;
+	color: #71ceb5;
 	font-weight: 900;
 }
 .am-header-right a i{
 	font-size: 0.35rem!important;
 }
-
+.search{padding-top:0px;}
+.am-btn{
+	background: #fff;
+}
+.am-btn i{
+	color: #71ceb5;
+	font-size: 0.4rem!important;
+	
+}
 #content{
 	display: flex;
 	flex-flow: column;
@@ -166,9 +182,6 @@ body{
 }
 
 /*Search里的搜索框*/
-.mint-search{
-	background:darkslategray;
-}
 .mint-searchbar-inner{
 	font-size:0.25rem;
 }

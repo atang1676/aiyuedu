@@ -3,7 +3,7 @@
 	  <div class="list">
 	  	<h2>
 	  		新上架
-	  		<a>></a>
+	  		<router-link :to="{ name:'NewInfo', params:{lbInfo:data[0].name} }">></router-link>
 	  	</h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
@@ -20,7 +20,8 @@
 			</div>
 	  </div>
 	  <div class="list">
-	  	<h2>热门<a>></a></h2>
+	  	<h2>热门
+	  	<router-link :to="{ name:'NewInfo', params:{lbInfo:data[1].name} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list2">
@@ -35,7 +36,7 @@
 			</div>
 	  </div>
 	  <div class="list">
-	  	<h2>画册<a>></a></h2>
+	  	<h2>画册<router-link :to="{ name:'NewInfo', params:{lbInfo:data[3].name} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list3">
@@ -50,7 +51,7 @@
 			</div>
 	  </div>
 	  <div class="list lastList">
-	  	<h2>免费<a>></a></h2>
+	  	<h2>免费<router-link :to="{ name:'NewInfo', params:{lbInfo:data[3].name} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list4">
@@ -79,12 +80,11 @@
   		name: 'ListTab',
   data () {
     return {
-    	
-      msg: "111",
       list1:"",
       list2:"",
       list3:"",
-      list4:""
+      list4:"",
+      data:''
     }
   },
  	created(){
@@ -93,18 +93,15 @@
         	return res
      	}).then((res)=> {
         //console.log(res.data);
-        var data = res.data;
-        //console.log(data)
-	  	console.log(data[0]);
-	   	this.arr = data[0];
+        this.data = res.data;
 	   
-		this.list1 = data[0].works;
+		this.list1 = this.data[0].works;
 		
-		this.list2 = data[1].works;
+		this.list2 = this.data[1].works;
 		
-		this.list3 = data[2].works;
+		this.list3 = this.data[2].works;
 		
-		this.list4 = data[3].works;
+		this.list4 = this.data[3].works;
       })
  	},
 }

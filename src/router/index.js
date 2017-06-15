@@ -6,6 +6,7 @@ import ListInfo from '@/components/ListInfo'
 import fenleiInfo from '@/components/fenleiInfo'
 import Search from '@/components/Search'
 import Account from '@/components/Account'
+import NewInfo from '@/components/NewInfo'
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +41,11 @@ export default new Router({
   		path: '/Account',
       	name: 'Account',
      	component: Account
-    }
+    },
+    {//主页 新上架 热门 画册 免费 的路由
+  		path: '/NewInfo/:lbInfo',
+      	name: 'NewInfo',
+     	component: NewInfo
+    },
   ]
 })
