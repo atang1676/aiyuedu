@@ -25,7 +25,7 @@
     </div>
     <ul class="price">
     	<li class="priceleft">
-    		{{data.fixed_price}}
+    		￥{{data.fixed_price/100}}
     	</li>
     	<li class="buy">
     		<i class="iconfont icon-64d"></i>
@@ -36,7 +36,7 @@
     		赠送
     	</li>
     </ul>
-    <InfoSummary :pass-data="data"></InfoSummary>
+    <InfoSummary :jianjie="jianjie" :mvlu="mvlu" :tags="tags"></InfoSummary>
   </div>
 </template>
 
@@ -53,7 +53,10 @@ export default {
   data () {
     return {
     	arr:"",
-    	data:""
+    	data:"",
+    	jianjie:"",
+    	mvlu:"",
+    	tags:""
     }
   },
   created(){
@@ -64,12 +67,15 @@ export default {
   	//var url = "https://read.douban.com/j/ebook/"+id;
   	//console.log(url);
 	   Vue.axios.get("../static/listInfo.json").then((res)=> {
-        return res;
-     }).then((res)=>{
-      	console.log(res);
-      	this.data =res.data;
-      	
-      })
+        return res.data;
+        console.log(res);
+    }).then((data)=>{
+      	this.data = data;
+      	console.log(data);
+      	this.jianjie = data.abstract;
+      	this.mvlu = data.table_of_contents;
+      	this.tags = data.tags;
+    })
     }
 }
 </script>

@@ -16,9 +16,9 @@
 								<button class="am-btn  am-dropdown-toggle" data-am-dropdown-toggle><i class="iconfont icon-wode1"></i> </button>
 								<ul class="am-dropdown-content">
 								    <li><router-link :to="{ name:'Account'}">账户余额</router-link></li>
-								    <li><a href="#">礼券</a></li>
-								    <li><a href="#">拥有的作品</a></li>
-								    <li><a href="#">礼物</a></li>
+								    <li><router-link :to="{ name:'Gift'}">礼券</router-link></li>
+								    <li><router-link :to="{ name:'Library'}">拥有的作品</router-link></li>
+								    <li><router-link :to="{ name:'GiftPack'}">礼物</router-link></li>
 								    <li><a href="#">账户信息</a></li>
 								</ul>
 					</div>

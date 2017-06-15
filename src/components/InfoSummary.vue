@@ -1,75 +1,119 @@
 <template>
   <div>
-  	<div class="am-panel-group" id="accordion">
-	    <div class="am-panel am-panel-default">
-		    <div class="am-panel-hd">
-		    	
-		      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
-		      	<p>简介</p>
-		      	<p>{{data.abstract}}</p>
-		      </h4>
-		      
-		    </div>
-		    <div id="do-not-say-1" class="am-panel-collapse am-collapse am-in">
-		      <div class="am-panel-bd">
-		       简介电放费
-		      </div>
-		    </div>
-	  	</div>
-	  	<div class="am-panel-group" id="accordion">
-	    <div class="am-panel am-panel-default">
-		    <div class="am-panel-hd">
-		    	
-		      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
-		      	
-		      	<p></p>
-		      </h4>
-		      
-		    </div>
-		    <div id="do-not-say-2" class="am-panel-collapse am-collapse">
-		      <div class="am-panel-bd">
-		       我是目录下里的
-		      </div>
-		    </div>
-	  	</div>
-  	</div>
-  	</div>
+		  <div class="jianjie" @click="change">  
+		  	<h2>简介</h2>
+		    <p v-if="this.flag==true">{{jianjie.substring(0,88)}}<i>点击加载更多...</i></p>
+		    <p v-else>{{jianjie}}</p>
+		  </div> 
+		  
+		  <div class="mulu" @click="change">  
+		  	<h2>目录  ></h2>
+		  	<ul v-if="this.flag==true">
+		    </ul>
+		    <ul v-else>
+		    	<li class="level0"  v-for="item in mvlu" v-show="item.level == 0">
+		    		{{item.title}}
+		    	</li>
+		    	<li class="level1"  v-for="item in mvlu" v-show="item.level == 1">
+		    		{{item.title}}
+		    	</li>
+		    </ul>
+		  </div> 
+		  
+		  <div class="tags">  
+		  	<h2>标题</h2>
+		    <ul>
+		    	<router-link :to="{ name:'fenleiInfo'}">
+				    	<li v-for="item in tags">
+				    		{{item.tag}}
+				    	</li>
+		    	</router-link>
+		    </ul>
+		  </div> 
+		  
+		  <div class="jianjie">
+		  	<h2>出版方</h2>
+		    <p>{{jianjie}}</p>
+		  </div>
+		  
+		  <div class="pinglun">
+		  	<h2>评论</h2>
+		    <p>还没有评论</p>
+		  </div>
   </div>
 </template>
 
 <script>
-	import jQuery from "jquery"
-window.$=window.jQuery=jQuery;
-	
 export default {
   name: 'InfoSummary',
-  props:["passData"],
+  props:["jianjie","mvlu","tags"],
   
   data(){
     return {
-      data: this.passData
+      data:"",
+      flag:true
     }
-  }
-	
+  },
+  methods:{
+				change:function(){
+							 if(this.flag==true){
+									this.flag=false;
+								}else{
+									this.flag=true;
+								}
+				}
+	}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	div{
-		height:50vh;
-		font-size: 0.3rem;
+	.jianjie,.mulu{
+		padding:0 0.3rem;
+		font-size: 0.28rem;
+		border-bottom: 1px solid gainsboro;
+		
 	}
-	.am-panel-hd{
+	.mulu ul{
+		padding-left:0.3rem;
+	}
+	.mulu li{
+		list-style: disc;
+	}
+	h2{
+		font-weight: 800;
+		font-size:0.3rem;
+		height:0.8rem;
+		line-height:0.8rem;
+	}
+	.tags{
 		height:30vh;
-		width:100vw;
-		padding:0.2rem 0.2rem 0.1rem;
+		padding:0 0.2rem;
+		border-bottom: 1px solid gainsboro;
+	}
+	.tags li{
+		background:#71ceb5;
+		color:#fff;
+		float:left;
 		font-size: 0.3rem;
+		width:20vw;
+		border-radius: 8px;
+		text-align: center;
+		margin:0 0.1rem 0.2rem;
+		
 	}
-	.am-panel-title{
-		height:0.5rem;
-		width:98vw;
+	.mulu .level1{
+		margin-left:0.4rem;
+		
 	}
-	#do-not-say-1{
+	.jianjie i{
+		font-size: 0.25rem;
+		color:#71ceb5;
+	}
+	.pinglun{
+		height:40vh;
+		padding:0 0.3rem;
+		font-size: 0.28rem;
+		border-bottom: 1px solid gainsboro;
 	}
 </style>

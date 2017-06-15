@@ -7,6 +7,9 @@ import fenleiInfo from '@/components/fenleiInfo'
 import Search from '@/components/Search'
 import Account from '@/components/Account'
 import NewInfo from '@/components/NewInfo'
+import Gift from '@/components/Gift'
+import Library from '@/components/Library'
+import GiftPack from '@/components/GiftPack'
 Vue.use(Router)
 
 export default new Router({
@@ -41,6 +44,21 @@ export default new Router({
   		path: '/Account',
       	name: 'Account',
      	component: Account
+    },
+    {//礼券 的 路由
+  		path: '/Gift',
+      	name: 'Gift',
+     	component: Gift
+    },
+    {//拥有的作品 的 路由
+  		path: '/Library',
+      	name: 'Library',
+     	component: Library
+    },
+    {//礼物 的 路由
+  		path: '/GiftPack',
+      	name: 'GiftPack',
+     	component: GiftPack
     },
     {//主页 新上架 热门 画册 免费 的路由
   		path: '/NewInfo/:lbInfo',
