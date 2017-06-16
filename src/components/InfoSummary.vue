@@ -49,13 +49,20 @@
 		    						<p class="pltime">{{item.created_time}}</p>
 		    				</div>
 		    		</li>
+		    		<div data-am-widget="pagination" class="am-pagination am-pagination-select">
+		        <li class="am-pagination-next ">
+		        <a class="" @click="nextPage">加载更多</a>
+		        </li>
+						</div>
 		    </ul>
 		  </div>
+		  
   </div>
 </template>
 
 <script>
 	import Vue from 'vue'
+	import {Indicator} from 'mint-ui'
 	export default {
   name: 'InfoSummary',
   props:["jianjie","mvlu","tags","pinglunId"],
@@ -65,7 +72,9 @@
       data:"",
       pingId:this.pinglunId,
       flag:true,
-      arr:""
+      arr:"",
+      limit:10,
+      url:''
     }
   },
   methods:{
@@ -75,6 +84,23 @@
 					}else{
 						this.flag=true;
 					}
+				},
+				nextPage:function(){
+					var isHot = window.location.pathname.split('/')[2];
+					this.limit = Number(this.limit) + 10;
+					//console.log(this.limit)
+					var url = 'https://read.douban.com/j/ebook/'+this.pingId+'/reviews?start=0&limit='+this.limit;
+					//this.url = 'https://read.douban.com/j/column/chart/'+ isHot +'?start=0'+'&limit='+this.limit;
+					Indicator.open();
+					setTimeout(function(){
+						Indicator.close();
+					},500)
+					Vue.axios.get(url).then((res)=>{
+						return res.data;
+					}).then((data)=>{
+						//console.log(data);
+						this.arr = data;
+					})
 				}
 	},
 	created(){
@@ -83,7 +109,7 @@
 				Vue.axios.get(url).then((res)=>{
 					return res.data;
 				}).then((data)=>{
-					console.log(data);
+					//console.log(data);
 					this.arr = data;
 				})
 	}
@@ -186,4 +212,15 @@
 		font-size: 0.25rem;
 		color:#71ceb5;
 	}
+	
+	.am-pagination-next {
+	    position: absolute;
+	    left: 10%;
+	    top: -50px;
+	    width: 80%;
+	    text-align: center;
+		font-size: 0.3rem;
+		margin: 0.4rem 0rem 1.5rem;
+		padding: 10px 40px;
+    }
 </style>

@@ -56,7 +56,7 @@
       </a>
     </div>
     <div class="am-footer-miscs ">
-			<p class="copyright">© 2005-2017 douban.com</p>
+			<p class="copyright">© 2005-2017 aiyuedu.com</p>
     </div>
   </footer>
   <!-- 点击登录后的模态框-->
