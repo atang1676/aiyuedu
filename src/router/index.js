@@ -11,7 +11,8 @@ import Gift from '@/components/Gift'
 import Library from '@/components/Library'
 import GiftPack from '@/components/GiftPack'
 import HotInfo from '@/components/HotInfo'
-
+import Login from '@/components/Login'
+import Register from '@/components/Register'
 Vue.use(Router)
 
 export default new Router({
@@ -72,5 +73,15 @@ export default new Router({
       	name: 'HotInfo',
      	component: HotInfo
     },
+     {//登录的路由
+  		path: '/Login',
+      	name: 'Login',
+     	component: Login
+    },
+    {//注册 的路由
+  		path: '/Register',
+      	name: 'Register',
+     	component: Register
+    }
   ]
 })

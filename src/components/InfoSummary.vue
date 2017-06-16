@@ -23,7 +23,7 @@
 		  <div class="tags">  
 		  	<h2>标题</h2>
 		    <div class="tagsList">
-		    	<router-link :to="{ name:'fenleiInfo'}" v-for="item in tags">
+		    	<router-link :to="{ name:'fenleiInfo'}" v-for="item in tags" :keys="item.id">
 				    {{item.tag}}
 		    	</router-link>
 		    </div>

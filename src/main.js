@@ -16,11 +16,12 @@ import 'amazeui/dist/css/amazeui.min.css'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import 'normalize.css/normalize.css'
-
+import verify from "vue-verify-plugin";
 
 Vue.use(VueAxios, axios)
 Vue.component(Search.name, Search)
 Vue.component(Cell.name, Cell);
+Vue.use(verify);
 Vue.config.productionTip = false
 
 

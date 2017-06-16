@@ -7,23 +7,29 @@
 		   	v-for="item in result"
 		    :title="item">
 		  </mt-cell>
-		  
 		</mt-search>
+		 
+		
 	</div>
 </template>
 
 <script>
 	import Vue from "vue"
+	import { Search,Cell,Indicator} from 'mint-ui'
+	Vue.component(Search.name, Search)
 	export default{
 		name:'Search',
 		data(){
 			return {
 				value:"",
-				result:''
+				result:'',
+				getData:"",
+				newVal:""
 			}
 		},
+		
 		created(){
-			
+			 console.log(Search)
 			//var  url = 'https://read.douban.com/j/suggest?q=%E7%99%BD'
 			//var url = 'https://read.douban.com/j/suggest?q='+ this.value;
 			
@@ -32,7 +38,13 @@
 			 	this.result = res.data.suggests;
 			 	
 		  })
+		},
+		methods:{
+			receviceData(){
+				alert(this.value)
+			}
 		}
+		 
 	}
 </script>
 
