@@ -16,20 +16,14 @@ import 'amazeui/dist/css/amazeui.min.css'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import 'normalize.css/normalize.css'
-<<<<<<< Updated upstream
 import verify from "vue-verify-plugin";
-=======
 import '../static/iconfont.css'
->>>>>>> Stashed changes
 
 Vue.use(VueAxios, axios)
 Vue.component(Search.name, Search)
 Vue.component(Cell.name, Cell);
-<<<<<<< Updated upstream
 Vue.use(verify);
-=======
 Vue.component(Actionsheet.name, Actionsheet);
->>>>>>> Stashed changes
 Vue.config.productionTip = false
 
 
