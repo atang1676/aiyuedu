@@ -1,13 +1,13 @@
 <template>
 	<div id="content">
 		<div class="NavHeader" v-if=" kind == 'column' ">
-			<h1>豆瓣专栏</h1>
+			<h1>爱阅读-专栏</h1>
 			<div class="subtitle">世间之事，经验之谈。
 				<a href="" class="">了解更多 &gt;</a>
 			</div>
 		</div>
 		<div class="NavHeader" v-else>
-			<h1>豆瓣连载</h1>
+			<h1>爱阅读-连载</h1>
 			<div class="subtitle">追就对了
 				<a href="" class="">了解更多 &gt;</a>
 			</div>
@@ -76,9 +76,10 @@ export default{
 }
 .NavHeader h1{
 	font-weight: bold;
-	font-size:0.35rem;
+	font-size:0.28rem;
 	line-height: 1;
 	margin-bottom: 8px;
+	color: #71ceb5;
 }
 .NavHeader a{
 	position: absolute;

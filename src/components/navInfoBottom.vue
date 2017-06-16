@@ -2,7 +2,7 @@
 	<div class="kinds">
 		<h2>分类</h2>
 		<div class="kindsList">
-			<router-link :to="{name:'fenleiInfo',params:{flInfo:item.id}}" v-for="item in listKinds">{{item.name}}</router-link>
+			<router-link :to="{name:'fenleiInfo'}" v-for="item in listKinds">{{item.name}}</router-link>
 		</div>
 	</div>
 </template>

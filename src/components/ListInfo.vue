@@ -4,6 +4,7 @@
     		<div class="bookleft">
 	    		<h1 class="title">{{data.title}}</h1>
 	    		<div class="bookcon">
+	    			<p><span class="pingjia">评价</span>{{data.rating_cnt}}人评价</p>
 		    		<p>{{data.original_author}}</p>
 		    		<p>{{data.kind}}</p>
 		    		<p>{{data.publisher}}/{{data.publish_time}}</p>
@@ -25,7 +26,7 @@
     </div>
     <ul class="price">
     	<li class="priceleft">
-    		{{data.fixed_price}}
+    		￥{{data.fixed_price/100}}
     	</li>
     	<li class="buy">
     		<i class="iconfont icon-64d"></i>
@@ -36,50 +37,55 @@
     		赠送
     	</li>
     </ul>
-    <InfoSummary :pass-data="data"></InfoSummary>
+    <InfoSummary :jianjie="jianjie" :mvlu="mvlu" :tags="tags"></InfoSummary>
   </div>
 </template>
 
 <script>
-	
 	import Vue from 'vue'
-	import jsonp from 'jsonp'
 	import InfoSummary from './InfoSummary'
-export default {
-  name: 'ListInfo',
-  components:{
+	export default {
+	  name: 'ListInfo',
+	  components:{
 			InfoSummary
 	},
   data () {
     return {
     	arr:"",
-    	data:""
+    	data:"",
+    	jianjie:"",
+    	mvlu:"",
+    	tags:""
     }
   },
-  created(){
-  	//详情 https://read.douban.com/j/ebook/
-  	console.log(window.location);
-  	var id = window.location.pathname.split("/")[2];
-  	console.log(id);
-  	var url = "https://read.douban.com/j/ebook/"+id;
-  	//console.log(url);
-	   Vue.axios.get(url).then((res)=> {
-        return res;
-     }).then((res)=>{
-      	console.log(res);
-      	this.data =res.data;
-      	
-      })
-    }
-}
+	created(){
+		//详情 https://read.douban.com/j/ebook/
+		console.log(window.location);
+		var id = window.location.pathname.split("/")[2];
+		console.log(id);
+		var url = "https://read.douban.com/j/ebook/"+id;
+		//console.log(url);
+		Vue.axios.get(url).then((res)=>{
+	    return res.data;
+	    console.log(res);
+	  }).then((data)=>{
+      	this.data = data;
+      	console.log(data);
+      	this.jianjie = data.abstract;
+      	this.mvlu = data.table_of_contents;
+      	this.tags = data.tags;
+	    })
+	  }
+	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 p{
-	font-size:0.28rem;
+	font-size:0.25rem;
 	line-height:1.3;
 	color:#a6a6a6;
+	margin-bottom: 5px;
 }
 .totle{
 	width:100vw;
@@ -89,20 +95,22 @@ p{
 	border-top: 1px solid gainsboro;
 }
 .title{
-	font-size: 0.4rem;
+	font-size: 0.3rem!important;
 	font-weight: 900;
 }
 .bookcon{
-	margin-top:0.5rem;
+	margin-top:0.2rem;
 }
 .bookleft{
 	float: left;
 	left:0.3rem;
+	width: 70%;
 }
 .bookright{
 	float: right;
 	right:0.2rem;
 	top:0.5rem;
+	width: 30%;
 }
 .bookright img{
 	width:1.9rem;
@@ -150,6 +158,7 @@ p{
 	height:1rem;
 	line-height: 1rem;
 	padding-left:0.4rem;
+	font-size: 0.25rem;
 }
 .buy{
 	display: flex;
@@ -159,4 +168,12 @@ p{
 	width:19.7vw;
 	height:1rem;
 }
+.pingjia{
+		font-size: .16rem;
+		color: #fff;
+		background: #71ceb5;
+		border-radius: 2px;
+		padding: 4px 12px;
+		margin-right: 4px;
+	}
 </style>

@@ -29,5 +29,5 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App,Search}
+  components: { App,Search,Cell,Indicator}
 })

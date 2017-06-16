@@ -25,7 +25,7 @@
 		created(){
 			
 			//var  url = 'https://read.douban.com/j/suggest?q=%E7%99%BD'
-			//var url = 'suggest?q='+ this.value;
+			//var url = 'https://read.douban.com/j/suggest?q='+ this.value;
 			
 			var url = '../static/baiInfo.json'
 			Vue.axios.get(url).then((res)=> {
@@ -40,8 +40,5 @@
 	.bgImg{
 		background: #fff url(../assets/bookpg.jpg) no-repeat 0 center;
 		background-size:100%;
-	}
-	.keys{
-		margin-top: 550px;
 	}
 </style>
