@@ -22,21 +22,12 @@
 		  
 		  <div class="tags">  
 		  	<h2>标题</h2>
-<<<<<<< HEAD
 		    <div class="tagsList">
 		    	<router-link :to="{ name:'fenleiInfo'}" v-for="item in tags">
 				    {{item.tag}}
 		    	</router-link>
 		    </div>
-=======
-		    <ul>
-		    	<router-link :to="{ name:'fenleiInfo'}">
-				    	<li v-for="item in tags">
-				    		{{item.tag}}
-				    	</li>
-		    	</router-link>
-		    </ul>
->>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
+		    
 		  </div> 
 		  
 		  <div class="jianjie">
@@ -87,7 +78,6 @@ export default {
 	}
 	.mulu li{
 		list-style: disc;
-<<<<<<< HEAD
 	}
 	h2{
 		font-weight: 800;
@@ -118,31 +108,12 @@ export default {
 		margin-bottom:8px;
 		margin-right: 8px;
 	}
-=======
-	}
 	h2{
 		font-weight: 800;
 		font-size:0.3rem;
 		height:0.8rem;
 		line-height:0.8rem;
 	}
-	.tags{
-		height:30vh;
-		padding:0 0.2rem;
-		border-bottom: 1px solid gainsboro;
-	}
-	.tags li{
-		background:#71ceb5;
-		color:#fff;
-		float:left;
-		font-size: 0.3rem;
-		width:20vw;
-		border-radius: 8px;
-		text-align: center;
-		margin:0 0.1rem 0.2rem;
-		
-	}
->>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 	.mulu .level1{
 		margin-left:0.4rem;
 		

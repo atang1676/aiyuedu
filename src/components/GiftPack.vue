@@ -2,13 +2,9 @@
 	<div id="content"> 
 		<div class="am-tabs" data-am-tabs>
   			<ul class="am-tabs-nav am-nav am-nav-tabs">
-<<<<<<< HEAD
-			    <li class="am-active songchu"><a href="#tab1">送出</a></li>
-			    <li class="shoudao"><a href="#tab2">收到</a></li>
-=======
+			    
 			    <li class="am-active"><a href="#tab1">送出</a></li>
 			    <li><a href="#tab2">收到</a></li>
->>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
   			</ul>
   			<div class="am-tabs-bd">
   				<div class="am-tab-panel am-fade am-in am-active" id="tab1">
@@ -34,10 +30,6 @@
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-	
-=======
->>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 	.am-tabs{
 		margin-top:0.1rem;
 	}
