@@ -38,7 +38,7 @@
     		<i class="iconfont icon-64d"></i>
     		购买
     	</li>
-    	<li class="buy">
+    	<li class="song">
     		<i class="iconfont icon-iconfontliwu"></i>
     		赠送
     	</li>
@@ -170,7 +170,6 @@ p{
 .price li{
 	float:left;
 	font-size: 0.25rem;
-	border-right: 1px solid gainsboro;
 }
 .priceleft{
 	width:60vw;
@@ -179,13 +178,17 @@ p{
 	padding-left:0.4rem;
 	font-size: 0.25rem;
 }
-.buy{
+.buy,.song{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width:19.7vw;
+	width:19.5vw;
 	height:1rem;
+}
+.buy{
+	border-right: 1px solid gainsboro;
+	border-left: 1px solid gainsboro;
 }
 .pingjia{
 		font-size: .16rem;
