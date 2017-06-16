@@ -58,6 +58,7 @@
     	tags:""
     }
   },
+<<<<<<< HEAD
 	created(){
 		//详情 https://read.douban.com/j/ebook/
 		console.log(window.location);
@@ -69,14 +70,43 @@
 	    return res.data;
 	    console.log(res);
 	  }).then((data)=>{
+=======
+  created(){
+  	//详情 https://read.douban.com/j/ebook/
+  	console.log(window.location);
+  	var id = window.location.pathname.split("/")[2];
+  	console.log(id);
+  	var url = "https://read.douban.com/j/ebook/"+id;
+  	//console.log(url);
+
+	   Vue.axios.get("../static/listInfo.json").then((res)=> {
+        return res.data;
+        console.log(res);
+    }).then((data)=>{
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
       	this.data = data;
       	console.log(data);
       	this.jianjie = data.abstract;
       	this.mvlu = data.table_of_contents;
       	this.tags = data.tags;
+<<<<<<< HEAD
 	    })
 	  }
 	}
+=======
+    })
+
+	   Vue.axios.get(url).then((res)=> {
+        return res;
+     }).then((res)=>{
+      	console.log(res);
+      	this.data =res.data;
+      	
+      })
+
+    }
+}
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

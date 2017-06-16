@@ -15,9 +15,15 @@
 			<p class="copy">由于苹果公司政策限制，豆币仅能在「爱阅读 iOS App」内充值及使用。</p>
 		</div>
 		
+<<<<<<< HEAD
 		<p class="accountBottom"><a >消费记录</a>></p>
 		<p class="accountBottom songhua"><a >送花记录</a>></p>
 		<div class="bottom"></div>
+=======
+		<p class="accountBottom"><a href="">消费记录</a>></p>
+		<p class="accountBottom"><a href="">送花记录</a>></p>
+		<div class="bottom"><p>￥:0.00</p></div>
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 	</div>
 </template>
 
@@ -92,17 +98,24 @@
 		height:1rem;
 		line-height: 1rem;
 		font-size: 0.3rem;
+<<<<<<< HEAD
 		color:#71ceb5;
+=======
+		color:#aac6d0;
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 		margin-top:0.5rem;
 		padding-left:0.3rem;
 		border-radius: 5px;
 	}
 	.accountBottom a{
 		padding-right:60vw;
+<<<<<<< HEAD
 		color:#71ceb5;
 	}
 	.songhua{
 		margin-bottom: 100px;
+=======
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 	}
 	.bottom{
 		margin-top:1rem;

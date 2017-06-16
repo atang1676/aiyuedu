@@ -7,10 +7,19 @@ import fenleiInfo from '@/components/fenleiInfo'
 import Search from '@/components/Search'
 import Account from '@/components/Account'
 import NewInfo from '@/components/NewInfo'
-import HotInfo from '@/components/HotInfo'
+
 import Gift from '@/components/Gift'
 import Library from '@/components/Library'
 import GiftPack from '@/components/GiftPack'
+
+import HotInfo from '@/components/HotInfo'
+<<<<<<< HEAD
+import Gift from '@/components/Gift'
+import Library from '@/components/Library'
+import GiftPack from '@/components/GiftPack'
+=======
+
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 Vue.use(Router)
 
 export default new Router({

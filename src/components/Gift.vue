@@ -30,18 +30,27 @@
 
 <style scoped>
 	#content{
+<<<<<<< HEAD
 		color:#71ceb5;
+=======
+		background:lavender;
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 		padding:0 0.3rem;
 	}
 	h1{
 		font-size: 0.3rem;
 		text-align: center;
+<<<<<<< HEAD
 		color:#71ceb5;
+=======
+		color:#aac6d0;
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 		font-weight: 800;
 		height:1.4rem;
 		line-height: 1.4rem;
 	}
 	.change{
+<<<<<<< HEAD
     width:70vw;
     height: 0.8rem;
     line-height:0.8rem;
@@ -53,6 +62,18 @@
     text-align: center;
     border: 0;
 }
+=======
+		height:0.8rem;
+		line-height:0.8rem;
+		border-radius:0.4rem;
+		width:70vw;
+		margin-left:10vw;
+		background:#77a4b3;
+		font-size: 0.3rem;
+		color:#fff;
+		text-align: center;
+	}
+>>>>>>> e44fcef57e30ce4a49919c04feda9834c4ef6833
 	.gift{
 		border:1px solid gainsboro;
 		margin-top:0.4rem;
