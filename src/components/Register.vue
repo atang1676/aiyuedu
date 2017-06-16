@@ -18,7 +18,7 @@
 		        	 <label v-verified="verifyError.pwd" class="am-form-field"></label>
 		        </div>
 		      </fieldset>
-		       <router-link :to="{name:'Content'}" @click="submit"  class="am-btn am-btn-primary am-btn-block saveBtn">注册个账号</router-link>
+		       <button  @click="submit"  class="am-btn am-btn-primary am-btn-block saveBtn">注册个账号</button>
 		    </div>
 		  </div>
 		</div>
