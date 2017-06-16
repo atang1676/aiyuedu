@@ -20,6 +20,7 @@
 		      </fieldset>
 		       <button  @click="submit"  class="am-btn am-btn-primary am-btn-block saveBtn">注册个账号</button>
 		    </div>
+		    
 		  </div>
 		</div>
 	</div>
@@ -66,8 +67,8 @@
 		    pwd:[
 		      "required",
 		      {
-		      	test: /[a-zA-Z][0-9]{5,17}$/,
-		      	message:"密码由6-18位数字、字母组成"
+		      	test: /^[a-zA-Z]{1}\w{5,17}/,
+		      	message:"密码由6-18位字符组成，首尾必须是英文字母"
 		      }
 		    ]
 		},
