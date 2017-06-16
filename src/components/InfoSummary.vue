@@ -36,21 +36,36 @@
 		  </div>
 		  
 		  <div class="pinglun">
-		  	<h2>评论</h2>
-		    <p>还没有评论</p>
+		  	<h2>读者评论</h2>
+		  	<ul v-if="this.arr.length==0"><li>还没有评论哦！</li></ul>
+		    <ul v-if="this.arr.length!=0">
+		    		<li class="pinglunInfo" v-for="item in arr">
+		    				<div class="pinglunleft">
+		    						<img :src='item.author_picture' alt="" />
+		    				</div>
+		    				<div class="pinglunright">
+		    						<p class="authorname">{{item.author_name}}</p>
+		    						<p class="plxinxi">{{item.abstract.substring(0,50)}}...</p>
+		    						<p class="pltime">{{item.created_time}}</p>
+		    				</div>
+		    		</li>
+		    </ul>
 		  </div>
   </div>
 </template>
 
 <script>
-export default {
+	import Vue from 'vue'
+	export default {
   name: 'InfoSummary',
   props:["jianjie","mvlu","tags","pinglunId"],
   
   data(){
     return {
       data:"",
-      flag:true
+      pingId:this.pinglunId,
+      flag:true,
+      arr:""
     }
   },
   methods:{
@@ -61,7 +76,18 @@ export default {
 						this.flag=true;
 					}
 				}
+	},
+	created(){
+				var url = 'https://read.douban.com/j/ebook/'+this.pingId+'/reviews?start=0&limit=10';
+				console.log(this.pingId);
+				Vue.axios.get(url).then((res)=>{
+					return res.data;
+				}).then((data)=>{
+					console.log(data);
+					this.arr = data;
+				})
 	}
+	
 }
 </script>
 
@@ -123,9 +149,41 @@ export default {
 		color:#71ceb5;
 	}
 	.pinglun{
-		height:40vh;
 		padding:0 0.3rem;
 		font-size: 0.28rem;
 		border-bottom: 1px solid gainsboro;
+		padding-bottom: 15vh;
+	}
+	.pinglunInfo{
+		width:90vw;
+		height:25vh;
+		margin:0.2rem;
+		border-bottom: 1px solid gainsboro;
+	}
+	.pinglunleft{
+		width:20vw;
+		height:20vw;
+		float:left;
+	}
+	.pinglunleft img{
+		width:80%;
+		height:80%;
+		border-radius: 20vw;
+	}
+	.pinglunright{
+		width:70vw;
+		float:left;
+	}
+	.plxinxi{
+		font-size: 0.25rem;
+		padding:0.2rem 0.1rem;
+		color:grey;
+	}
+	.authorname{
+		color:#71ceb5;
+	}
+	.pltime{
+		font-size: 0.25rem;
+		color:#71ceb5;
 	}
 </style>

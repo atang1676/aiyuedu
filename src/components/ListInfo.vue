@@ -21,7 +21,13 @@
     			<span class="read">阅读</span>
     	</div>
     	<div class="fenxiang">
-    			<i class="iconfont icon-fenxiang"></i>
+    			<i class="iconfont icon-fenxiang" @click="click">
+    				<mt-actionsheet
+						  :actions="actions"
+						  :closeOnClickModal=false
+						  v-model="flag">
+						</mt-actionsheet>
+    			</i>
     	</div>
     </div>
     <ul class="price">
@@ -56,8 +62,19 @@
     	jianjie:"",
     	mvlu:"",
     	tags:"",
-    	id:0
+    	id:0,
+    	actions:[{name:"分享至"},{name:"爱阅读"},{name:"新浪微博"},{name:"朋友圈"}],
+    	flag:false
     }
+  },
+  methods:{
+  			click:function(){
+					 if(this.flag==true){
+							this.flag=false;
+						}else{
+							this.flag=true;
+						}
+				}
   },
   created(){
   	//详情 https://read.douban.com/j/ebook/
