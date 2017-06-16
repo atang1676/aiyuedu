@@ -37,7 +37,7 @@
     		赠送
     	</li>
     </ul>
-    <InfoSummary :jianjie="jianjie" :mvlu="mvlu" :tags="tags"></InfoSummary>
+    <InfoSummary :jianjie="jianjie" :mvlu="mvlu" :tags="tags" :pinglun-id='id'></InfoSummary>
   </div>
 </template>
 
@@ -55,15 +55,16 @@
     	data:"",
     	jianjie:"",
     	mvlu:"",
-    	tags:""
+    	tags:"",
+    	id:0
     }
   },
   created(){
   	//详情 https://read.douban.com/j/ebook/
   	//console.log(window.location);
-  	var id = window.location.pathname.split("/")[2];
+  	this.id = window.location.pathname.split("/")[2];
   	//console.log(id);
-  	var url = "https://read.douban.com/j/ebook/"+id;
+  	var url = "https://read.douban.com/j/ebook/"+ this.id;
   	//console.log(url);
 
 	   Vue.axios.get(url).then((res)=> {

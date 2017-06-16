@@ -32,7 +32,7 @@
 		  
 		  <div class="jianjie">
 		  	<h2>出版方</h2>
-		    <p>{{jianjie}}</p>
+		    <p>浙江文艺出版社成立于1983年，是全国重要的文学出版重镇之一。浙江文艺一直以出版高品位、高格调、高档次、高质量的中外文学名著、人文社科著作为特色，近年来也多次成功推出引起全国轰动的重量级畅销书。</p>
 		  </div>
 		  
 		  <div class="pinglun">
@@ -45,7 +45,7 @@
 <script>
 export default {
   name: 'InfoSummary',
-  props:["jianjie","mvlu","tags"],
+  props:["jianjie","mvlu","tags","pinglunId"],
   
   data(){
     return {
@@ -55,11 +55,11 @@ export default {
   },
   methods:{
 				change:function(){
-							 if(this.flag==true){
-									this.flag=false;
-								}else{
-									this.flag=true;
-								}
+				 if(this.flag==true){
+						this.flag=false;
+					}else{
+						this.flag=true;
+					}
 				}
 	}
 }
