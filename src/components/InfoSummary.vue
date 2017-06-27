@@ -89,13 +89,14 @@
 					var isHot = window.location.pathname.split('/')[2];
 					this.limit = Number(this.limit) + 10;
 					//console.log(this.limit)
-					var url = 'https://read.douban.com/j/ebook/'+this.pingId+'/reviews?start=0&limit='+this.limit;
+					//var url = 'https://read.douban.com/j/ebook/'+this.pingId+'/reviews?start=0&limit='+this.limit;
 					//this.url = 'https://read.douban.com/j/column/chart/'+ isHot +'?start=0'+'&limit='+this.limit;
+					this.url = '/j/ebook/'+this.pingId+'/reviews?start=0&limit='+this.limit;
 					Indicator.open();
 					setTimeout(function(){
 						Indicator.close();
 					},500)
-					Vue.axios.get(url).then((res)=>{
+					Vue.axios.get(this.url).then((res)=>{
 						return res.data;
 					}).then((data)=>{
 						//console.log(data);
@@ -104,9 +105,10 @@
 				}
 	},
 	created(){
-				var url = 'https://read.douban.com/j/ebook/'+this.pingId+'/reviews?start=0&limit=10';
-				console.log(this.pingId);
-				Vue.axios.get(url).then((res)=>{
+				//var url = 'https://read.douban.com/j/ebook/'+this.pingId+'/reviews?start=0&limit=10';
+				this.url = '/j/ebook/'+this.pingId+'/reviews?start=0&limit=10';
+				//console.log(this.pingId);
+				Vue.axios.get(this.url).then((res)=>{
 					return res.data;
 				}).then((data)=>{
 					//console.log(data);

@@ -3,11 +3,11 @@
 		<div class="hot">
 		  	<h2>
 		  		近期热门
-		  		<router-link :to="{ name:'HotInfo', params:{isHot:listCharts[0].id} }">></router-link>
+		  		<router-link :to="{ name:'HotInfo', params:{isHot:chartsZero.id} }">></router-link>
 		  	</h2>
 		    <div class="swiper-container hotContainer">
 			    <div class="swiper-wrapper">
-			        <div v-if="listCharts!=null" class="swiper-slide hotList" v-for="item in listCharts[0].columns">
+			        <div class="swiper-slide hotList" v-for="item in chartsZero.columns">
 			        	<router-link :to="{ name:'ListInfo', params:{id:item.id} }">
 				        	<img :src="item.cover_url"/>
 			  				<h3 class="book-title">{{item.title}}</h3>
@@ -22,11 +22,11 @@
 		<div class="hot">
 		  	<h2>
 		  		最近更新
-		  		<router-link :to="{ name:'HotInfo', params:{isHot:listCharts[1].id} }">></router-link>
+		  		<router-link :to="{ name:'HotInfo', params:{isHot:chartsOne.id} }">></router-link>
 		  	</h2>
 		    <div class="swiper-container hotContainer">
 			    <div class="swiper-wrapper">
-			        <div v-if="listCharts!=null" class="swiper-slide hotList" v-for="item in listCharts[1].columns">
+			        <div class="swiper-slide hotList" v-for="item in chartsOne.columns">
 			        	<router-link :to="{ name:'ListInfo', params:{id:item.id} }">
 				        	<img :src="item.cover_url"/>
 			  				<h3 class="book-title">{{item.title}}</h3>
@@ -44,7 +44,7 @@
 <script>
 	export default{
 		name :'navInfoCenter',
-		props:['listCharts']
+		props:['chartsZero','chartsOne']
 		 
 	}
 </script>

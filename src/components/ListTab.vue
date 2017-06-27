@@ -3,7 +3,7 @@
 	  <div class="list">
 	  	<h2>
 	  		新上架
-	  		<router-link :to="{ name:'NewInfo', params:{lbInfo:data[0].name} }">></router-link>
+	  		<router-link :to="{ name:'NewInfo', params:{lbInfo:name1} }">></router-link>
 	  	</h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
@@ -21,7 +21,7 @@
 	  </div>
 	  <div class="list">
 	  	<h2>热门
-	  	<router-link :to="{ name:'NewInfo', params:{lbInfo:data[1].name} }">></router-link></h2>
+	  	<router-link :to="{ name:'NewInfo', params:{lbInfo:name2} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list2">
@@ -37,7 +37,7 @@
 			</div>
 	  </div>
 	  <div class="list">
-	  	<h2>画册<router-link :to="{ name:'NewInfo', params:{lbInfo:data[2].name} }">></router-link></h2>
+	  	<h2>画册<router-link :to="{ name:'NewInfo', params:{lbInfo:name3} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list3">
@@ -53,7 +53,7 @@
 			</div>
 	  </div>
 	  <div class="list lastList">
-	  	<h2>免费<router-link :to="{ name:'NewInfo', params:{lbInfo:data[3].name} }">></router-link></h2>
+	  	<h2>免费<router-link :to="{ name:'NewInfo', params:{lbInfo:name4} }">></router-link></h2>
 	    <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide" v-for="item in list4">
@@ -86,24 +86,30 @@
       list2:"",
       list3:"",
       list4:"",
-      data:''
+      data:'',
+      name1:'',
+      name2:'',
+      name3:'',
+      name4:''
     }
   },
  	created(){
  			//var url = "https://read.douban.com/j/category/";
-		Vue.axios.get("https://read.douban.com/j/category/").then((res)=> {
+ 			var url = "/j/category/"
+		Vue.axios.get(url).then((res)=> {
         	return res
      	}).then((res)=> {
         //console.log(res.data);
         this.data = res.data;
 	   
 		this.list1 = this.data[0].works;
-		
 		this.list2 = this.data[1].works;
-		
 		this.list3 = this.data[2].works;
-		
 		this.list4 = this.data[3].works;
+		this.name1 = this.data[0].name;
+		this.name2 = this.data[1].name;
+		this.name3 = this.data[2].name;
+		this.name4 = this.data[3].name;
       })
  	},
 }

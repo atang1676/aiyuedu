@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<navInfoTop :img-banners="banners"></navInfoTop>
-		<navInfoCenter :list-charts="charts"></navInfoCenter>
+		<navInfoCenter :charts-zero="charts0" :charts-one="charts1"></navInfoCenter>
 		<navInfoBottom :list-kinds="kinds"></navInfoBottom>
 	</div>
 </template>
@@ -32,7 +32,9 @@ export default{
 			banners:'',
 			charts:'',
 			kinds:'',
-			kind:''
+			kind:'',
+			charts0:'',
+			charts1:''
 		}
 	},
 	created(){
@@ -48,12 +50,16 @@ export default{
 			//url = '../static/navInfoSerial.json';
 			this.kind = 'serial';
 		}
-		url = 'https://read.douban.com/j/column/?kind='+ kind
+	//	url = 'https://read.douban.com/j/column/?kind='+ kind
+		url = '/j/column/?kind='+ kind
 		console.log(url)
 	//	console.log(url);
 		 Vue.axios.get(url).then((res)=> {
 	        this.banners = Array.prototype.slice.call(res.data.banners);
 	        this.charts = Array.prototype.slice.call(res.data.charts);
+	        
+	        this.charts0 = this.charts[0];
+	        this.charts1 = this.charts[1];
 	        this.kinds = Array.prototype.slice.call(res.data.kinds);
 	        console.log(this.charts);
 	     })

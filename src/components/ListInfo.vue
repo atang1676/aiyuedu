@@ -81,7 +81,9 @@
   	//console.log(window.location);
   	this.id = window.location.pathname.split("/")[2];
   	//console.log(id);
-  	var url = "https://read.douban.com/j/ebook/"+ this.id;
+  	//var url = "https://read.douban.com/j/ebook/"+ this.id;
+  	var url ='../static/listInfo.json' //原网站接口变了 所以用本地数据
+  	//var url = '/j/ebook/' + this.id;
   	//console.log(url);
 
 	   Vue.axios.get(url).then((res)=> {

@@ -28,7 +28,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-
+        '/j': {
+            target: 'https://read.douban.com/j',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/j': ''
+            }
+          }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

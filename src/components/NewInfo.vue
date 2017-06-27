@@ -41,7 +41,8 @@
 			var liInfo = window.location.pathname.split('/')[2];
 			
 			//var url = 'https://read.douban.com/j/category/new?start=0&limit=10'
-			this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start=0&limit=10'
+			//this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start=0&limit=10';
+			this.url = '/j/category/'+ liInfo +'?start=0&limit=10'
 			console.log(this.url)
 			Vue.axios.get(this.url).then((res)=> {
 			 	this.infoData = Array.prototype.slice.call(res.data);
@@ -61,7 +62,8 @@
 				var liInfo = window.location.pathname.split('/')[2];
 				this.start = Number(this.start) + 10;
 				console.log(this.start)
-				this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start='+this.start+'&limit=10'
+				//this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start='+this.start+'&limit=10';
+				this.url = '/j/category/'+ liInfo +'?start='+this.start+'&limit=10'
 				/*Indicator.open();
 				setTimeout(function(){
 					Indicator.close();
@@ -78,7 +80,8 @@
 					this.start = 0
 				}
 				console.log(this.start)
-				this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start='+this.start+'&limit=10'
+				//this.url = 'https://read.douban.com/j/category/'+ liInfo +'?start='+this.start+'&limit=10';
+				this.url = '/j/category/'+ liInfo +'?start='+this.start+'&limit=10'
 				/*Indicator.open();
 				setTimeout(function(){
 					Indicator.close();

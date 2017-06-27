@@ -43,7 +43,8 @@
 		created(){
 			var isHot = window.location.pathname.split('/')[2];
 			//url=https://read.douban.com/j/column/chart/hot?start=0&limit=20
-			this.url = 'https://read.douban.com/j/column/chart/'+ isHot +'?start=0&limit='+this.limit;
+			//this.url = 'https://read.douban.com/j/column/chart/'+ isHot +'?start=0&limit='+this.limit;
+			this.url = '/j/column/chart/'+ isHot +'?start=0&limit='+this.limit;
 			console.log(this.limit)
 			Vue.axios.get(this.url).then((res)=> {
 			 	return res.data.columns;
@@ -67,7 +68,8 @@
 				var isHot = window.location.pathname.split('/')[2];
 				this.limit = Number(this.limit) + 10;
 				console.log(this.limit)
-				this.url = 'https://read.douban.com/j/column/chart/'+ isHot +'?start=0'+'&limit='+this.limit;
+				//this.url = 'https://read.douban.com/j/column/chart/'+ isHot +'?start=0'+'&limit='+this.limit;
+				this.url = '/j/column/chart/'+ isHot +'?start=0'+'&limit='+this.limit;
 				Indicator.open();
 				setTimeout(function(){
 					Indicator.close();
