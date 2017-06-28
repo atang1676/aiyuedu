@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.\n
  
 import Vue from 'vue'
-import App from './App'
+
 import router from './router'
 import jsonp from "jsonp"
 import axios from 'axios'
@@ -18,7 +18,7 @@ import 'swiper/dist/css/swiper.min.css'
 import 'normalize.css/normalize.css'
 import verify from "vue-verify-plugin";
 import '../static/iconfont.css'
-
+import App from './App'
 Vue.use(VueAxios, axios)
 Vue.component(Search.name, Search)
 Vue.component(Cell.name, Cell);

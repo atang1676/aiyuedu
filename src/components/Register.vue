@@ -40,7 +40,7 @@
 		methods:{
 		    submit:function(){
 		      if(this.$verify.check()){
-		        //通过验证  
+		        alert('注册成功！')  
 		      }
 		    }
 		},
@@ -68,7 +68,7 @@
 		      "required",
 		      {
 		      	test: /^[a-zA-Z]{1}\w{5,17}/,
-		      	message:"密码由6-18位字符组成，首尾必须是英文字母"
+		      	message:"密码由6-18位字符组成，首位必须是英文字母"
 		      }
 		    ]
 		},
